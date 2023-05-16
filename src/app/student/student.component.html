@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="lista-opt-items">
+        <div class="title-items" id="viewdoc">
+            <p>Visualizar</p>
+        </div>
+        <ng-template ngFor let-x [ngForOf]="itemss" let-i="index">
+            <div class="title-items" [id]="'item'" (click)="content(x)">
+                <strong>{{x.nombreItem}}</strong>
+            </div>
+        </ng-template>
+    </div>
+    <div class="view-edit-item">
+        <div class="barra">
+            <div class="save" (click)="saveitem()">
+                <img src="/assets/image/save.svg">
+            </div>
+        </div>
+        <div class="edit">
+            <div contenteditable="true" class="textarea"></div>
+        </div>
+    </div>
+</div>
