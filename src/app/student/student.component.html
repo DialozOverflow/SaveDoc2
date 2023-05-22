@@ -1,9 +1,6 @@
 <app-header></app-header>
 <div class="container">
     <div class="lista-opt-items">
-        <div class="title-items" id="viewdoc">
-            <p>Visualizar</p>
-        </div>
         <ng-template ngFor let-x [ngForOf]="tdantep" let-i="index">
             <div class="base-ante" (click)="content(x)">
                 <strong>{{x.nombreItem}}</strong>
