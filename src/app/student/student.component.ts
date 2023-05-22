@@ -20,7 +20,7 @@ export class StudentComponent implements OnInit, OnDestroy {
   unsub: Subscription[] = [];
   tdantep: item[] = [];
   cache: item[] = [];
-  modeloañadir:item = {
+  modeloañadir: item = {
     id: 0,
     nombreItem: '',
     info: '',
@@ -64,63 +64,17 @@ export class StudentComponent implements OnInit, OnDestroy {
                       txt.textContent = res[y].info;
                       this.selectitem = res[y];
                     } else {
-                      txt.textContent = this.cache[y-2].info;
-                      this.selectitem = this.cache[y-2];
+                      txt.textContent = this.cache[y - 2].info;
+                      this.selectitem = this.cache[y - 2];
                     }
-                  }else{
+                  } else {
                     txt.textContent = res[y].info;
                     this.selectitem = res[y];
-                  }
-                  let opt = document.querySelector('.container .opt-state') as HTMLDivElement;
-                  let penv = document.querySelector('.container .opt-state .env') as HTMLDivElement;
-                  let env = document.querySelector('.container .opt-state .env p') as HTMLElement;
-                  let papro = document.querySelector('.container .opt-state .apro') as HTMLDivElement;
-                  let apro = document.querySelector('.container .opt-state .apro p') as HTMLElement;
-                  opt.style.display = 'flex';
-                  penv.style.display = 'flex';
-                  papro.style.display = 'flex';
-                  if (this.selectitem.aprovado) {
-                    apro.textContent = 'aprobado';
-                    papro.style.background = 'green';
-                  } else {
-                    apro.textContent = 'aprobar';
-                    papro.style.background = 'red';
-                  }
-                  if (this.selectitem.enviado) {
-                    env.textContent = 'enviado';
-                    penv.style.background = 'green';
-                  } else {
-                    env.textContent = 'enviar';
-                    penv.style.background = 'red';
-                  }
-                  let corr = document.querySelector('.container .opt-state .corr') as HTMLImageElement;
-                  let borr = document.querySelector('.container .opt-state .borr') as HTMLImageElement;
-                  corr.style.display = 'flex';
-                  borr.style.display = 'flex';
-                  if (this.selectitem.corregido) {
-                    corr.style.background = 'green';
-                  } else {
-                    corr.style.background = 'red';
-                  }
-                  if (this.selectitem.borrador) {
-                    borr.style.background = 'green';
-                  } else {
-                    corr.style.background = 'red';
                   }
                 } else {
                   alert('Aun no ha sido aprovado el anterior item');
                 }
               } else if (x.id == res[y].id && [20, 21].includes(x.id)) {
-                let penv = document.querySelector('.container .opt-state .env') as HTMLDivElement;
-                let papro = document.querySelector('.container .opt-state .apro') as HTMLDivElement;
-                let corr = document.querySelector('.container .opt-state .corr') as HTMLImageElement;
-                let borr = document.querySelector('.container .opt-state .borr') as HTMLImageElement;
-                let opt = document.querySelector('.container .opt-state') as HTMLDivElement;
-                opt.style.display = 'flex';
-                corr.style.display = 'none';
-                borr.style.display = 'none';
-                penv.style.display = 'none';
-                papro.style.display = 'none';
                 const txt = document.querySelector('.container .view-edit-item .edit .textarea') as HTMLDivElement;
                 txt.textContent = res[y].info;
                 this.selectitem = res[y];
@@ -161,7 +115,9 @@ export class StudentComponent implements OnInit, OnDestroy {
   cante(): void {
     let inp = document.querySelector('.td .info-basic-ante .cont input') as HTMLInputElement;
     let txa = document.querySelector('.td .info-basic-ante .cont textarea') as HTMLTextAreaElement;
+    let bbb = document.querySelector('.td .info-basic-ante .opt button') as HTMLButtonElement;
     if (inp.value && txa.value) {
+      bbb.disabled = true;
       let nombre: item = {
         id: 20,
         nombreItem: "Nombre del Proyecto",
@@ -180,11 +136,11 @@ export class StudentComponent implements OnInit, OnDestroy {
         aprovado: true,
         borrador: true
       }
-      let aaa = setTimeout(()=>{
+      let aaa = setTimeout(() => {
         this.unsub.push(
           this.it.editItem(nombre).pipe().subscribe()
         );
-      },1000);
+      }, 1000);
       clearTimeout(aaa);
       this.unsub.push(
         this.it.editItem(descrip).pipe(
@@ -196,13 +152,13 @@ export class StudentComponent implements OnInit, OnDestroy {
     }
   }
   escritura(): void {
-    if (this.selectitem != undefined && this.selectitem.corregido == false) {
+    const txt = document.querySelector('.container .view-edit-item .edit .textarea') as HTMLDivElement;
+    if (this.selectitem != undefined && this.selectitem.corregido == false && txt.textContent != this.selectitem.info) {
       this.selectitem.corregido = true;
       this.selectitem.enviado = false;
       this.unsub.push(
         this.it.editItem(this.selectitem)
           .pipe(tap((res: item) => {
-            console.log(res);
           }))
           .subscribe()
       );
@@ -222,12 +178,17 @@ export class StudentComponent implements OnInit, OnDestroy {
         tap((res: item[]) => {
           if (this.selectitem != undefined) {
             let corr = document.querySelector('.container .opt-state .corr') as HTMLDivElement;
+            let save = document.querySelector('.container .opt-state .save') as HTMLDivElement;
             let borr = document.querySelector('.container .opt-state .borr') as HTMLDivElement;
             let penv = document.querySelector('.container .opt-state .env') as HTMLDivElement;
             let env = document.querySelector('.container .opt-state .env p') as HTMLElement;
             let papro = document.querySelector('.container .opt-state .apro') as HTMLDivElement;
             let apro = document.querySelector('.container .opt-state .apro p') as HTMLElement;
-            if ([20,21].includes(this.selectitem.id) == false) {
+            const txt = document.querySelector('.container .view-edit-item .edit .textarea') as HTMLDivElement;
+            let opt = document.querySelector('.container .opt-state') as HTMLDivElement;
+            txt.style.display = 'block';
+            opt.style.display = 'flex';
+            if ([20, 21].includes(this.selectitem.id) == false) {
               penv.style.display = 'flex';
               papro.style.display = 'flex';
               corr.style.display = 'flex';
@@ -237,6 +198,16 @@ export class StudentComponent implements OnInit, OnDestroy {
               papro.style.display = 'none';
               corr.style.display = 'none';
               borr.style.display = 'none';
+            }
+            if (this.selectitem.aprovado && [20, 21].includes(this.selectitem.id) == false) {
+              txt.contentEditable = "false";
+              save.style.display = 'none';
+            }else if (this.selectitem.aprovado && [20, 21].includes(this.selectitem.id)){
+              txt.contentEditable = "true";
+              save.style.display = 'flex';
+            } else if (this.selectitem.aprovado == false && [20, 21].includes(this.selectitem.id) == false) {
+              txt.contentEditable = "true";
+              save.style.display = 'flex';
             }
             for (let x = 0; x < res.length; x++) {
               if (res[x].id == this.selectitem.id) {
@@ -271,55 +242,64 @@ export class StudentComponent implements OnInit, OnDestroy {
         })
       ).subscribe();
   }
-  aprobar():void{
-    this.selectitem.aprovado = true;
-    this.unsub.push(
-      this.it.editItem(this.selectitem)
-      .pipe(
-        tap((res:item)=>res)
-      )
-      .subscribe()
-    );
-    this.refreshstate();
+  aprobar(): void {
+    if (this.selectitem.aprovado == false) {
+      this.selectitem.aprovado = true;
+      this.unsub.push(
+        this.it.editItem(this.selectitem)
+          .pipe(
+            tap((res: item) => res)
+          )
+          .subscribe()
+      );
+      this.refreshstate();
+    }
   }
-  anadiritem():void{
+  anadiritem(): void {
     let nitm = document.querySelector('.container .add-item input') as HTMLInputElement;
     this.modeloañadir.nombreItem = nitm.value;
     this.unsub.push(
       this.it.getItems()
-      .pipe(
-        tap((res:item[])=>{
-          let itemss = []
-          for (let x = 0; x < res.length; x++) {
-            itemss.push(res[x].id);
-          }
-          let cont = 0;
-          while (itemss.includes(cont)) {
-            cont+=1;
-          }
-          this.modeloañadir.id = cont
-          for (let x = 0; x < res.length; x++) {
-            if (res[x].id == this.selectitem.id) {
-              this.unsub.push(
-                this.it.insertItem(this.modeloañadir)
-                .pipe()
-                .subscribe()
-              );
-              break;
+        .pipe(
+          tap((res: item[]) => {
+            let itemss = []
+            for (let x = 0; x < res.length; x++) {
+              itemss.push(res[x].id);
             }
-          }
-        })
-      )
-      .subscribe()
+            let cont = 0;
+            while (itemss.includes(cont)) {
+              cont += 1;
+            }
+            this.modeloañadir.id = cont
+            for (let x = 0; x < res.length; x++) {
+              if (res[x].id == this.selectitem.id) {
+                this.unsub.push(
+                  this.it.insertItem(this.modeloañadir)
+                    .pipe(
+                      tap((res:item)=>{this.refresh()})
+                    )
+                    .subscribe()
+                );
+                break;
+              }
+            }
+          })
+        )
+        .subscribe()
     );
     this.addclose();
   }
-  addshow():void{
+  addshow(): void {
     let show = document.querySelector('.container .add-item') as HTMLDivElement;
     show.style.display = 'flex';
   }
-  addclose():void{
+  addclose(): void {
     let show = document.querySelector('.container .add-item') as HTMLDivElement;
     show.style.display = 'none';
+  }
+  comandos(cmd:string, v = null):void{
+    if (v) {
+      document.execCommand
+    }
   }
 }

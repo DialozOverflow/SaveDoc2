@@ -12,20 +12,11 @@
     {
       "id": 21,
       "nombreItem": "Descripcion breve",
-      "info": "asfhj5322332",
+      "info": "",
       "corregido": false,
       "enviado": false,
-      "aprovado": true,
+      "aprovado": false,
       "borrador": true
-    },
-    {
-      "id": 1,
-      "nombreItem": "Titulo",
-      "info": "",
-      "corregido": true,
-      "enviado": false,
-      "borrador": true,
-      "aprovado": false
     },
     {
       "id": 2,

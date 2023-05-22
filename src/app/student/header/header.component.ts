@@ -180,14 +180,11 @@ export class HeaderComponent {
             if (res.length > 0) {
               this.it.deleteItem(res[0])
                 .pipe(tap((res1: item) => {
-                  console.log(res1);
                 }))
                 .subscribe();
             } else if (res.length == 0) {
               this.cont = 0;
-              console.log(this.backup)
               this.setInsert = setInterval(() => {
-                console.log(this.backup)
                 if (this.cont < this.backup.length) {
                   this.it.insertItem(this.backup[this.cont])
                     .pipe()
