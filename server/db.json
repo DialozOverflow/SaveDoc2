@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": 20,
+      "nombreItem": "Nombre del Proyecto",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "aprovado": false,
+      "borrador": true
+    },
+    {
+      "id": 21,
+      "nombreItem": "Descripcion breve",
+      "info": "asfhj5322332",
+      "corregido": false,
+      "enviado": false,
+      "aprovado": true,
+      "borrador": true
+    },
+    {
+      "id": 1,
+      "nombreItem": "Titulo",
+      "info": "",
+      "corregido": true,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 2,
+      "nombreItem": "Planteamiento del problema",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 3,
+      "nombreItem": "Antecedentes",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 4,
+      "nombreItem": "Definicion del problema",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 5,
+      "nombreItem": "Justificacion",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 6,
+      "nombreItem": "Definiciones",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 7,
+      "nombreItem": "Objetivos",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 8,
+      "nombreItem": "Hipotesis",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 9,
+      "nombreItem": "Limitaciones",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 10,
+      "nombreItem": "Delimitaciones",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 11,
+      "nombreItem": "Marco de referencia",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 12,
+      "nombreItem": "Metodo",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 13,
+      "nombreItem": "Bibliografia",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    },
+    {
+      "id": 14,
+      "nombreItem": "Cronograma",
+      "info": "",
+      "corregido": false,
+      "enviado": false,
+      "borrador": true,
+      "aprovado": false
+    }
+  ]
+}

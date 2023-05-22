@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="container">
+    <div class="lista-opt-items">
+        <div class="title-items" id="viewdoc">
+            <p>Visualizar</p>
+        </div>
+        <ng-template ngFor let-x [ngForOf]="tdantep" let-i="index">
+            <div class="base-ante" (click)="content(x)">
+                <strong>{{x.nombreItem}}</strong>
+            </div>
+        </ng-template>
+        <ng-template ngFor let-x [ngForOf]="itemss" let-i="index">
+            <div class="title-items" [id]="'item'" (click)="content(x)">
+                <strong>{{x.nombreItem}}</strong>
+            </div>
+        </ng-template>
+    </div>
+    <div class="view-edit-item">
+        <div class="barra">
+        </div>
+        <div class="edit">
+            <div contenteditable="true" class="textarea" (keyup)="escritura()"></div>
+        </div>
+    </div>
+    <div class="add-item">
+        <h4>Nombre del Item</h4>
+        <input type="text">
+        <div class="opt-b">
+            <button (click)="anadiritem()">Crear item</button>
+            <button (click)="addclose()">Cancelar</button>
+        </div>
+    </div>
+    <div class="opt-state">
+        <div class="corr">
+            <p>correccion</p>
+        </div>
+        <div class="borr">
+            <p>borrador</p>
+        </div>
+        <div class="env">
+            <p></p>
+        </div>
+        <div class="apro" (click)="aprobar()">
+            <p></p>
+        </div>
+        <div class="addd" (click)="addshow()">
+            <p>Añadir item</p>
+        </div>
+        <div class="save" (click)="saveitem()">
+            <img src="/assets/image/save.svg">
+        </div>
+    </div>
+</div>
+<div class="td" *ngIf="tituloante == false && desbreve == false;">
+    <div class="quest">
+        <h1>Parece que eres nuevo en SaveDoc. <br> Si deseas crear un nuevo anteproyectos presiona aqui.</h1>
+        <img src="/assets/image/arrow2.svg">
+        <div class="cont-more" (click)="ir()">
+            <div class="palo1"></div>
+            <div class="palo2"></div>
+        </div>
+    </div>
+    <div class="info-basic-ante">
+        <div class="cont">
+            <div class="vol" (click)="volver()">
+                <img src="/assets/image/arrow2.svg">
+            </div>
+            <h4>Nombre del anteprotecto</h4>
+            <input type="text">
+            <h4>Descripcion breve del anteprotecto</h4>
+            <textarea></textarea>
+        </div>
+        <div class="opt" (click)="cante()">
+            <button>Crear anteproyecto</button>
+        </div>
+    </div>
+</div>
